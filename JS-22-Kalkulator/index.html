@@ -1,0 +1,160 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<title>Kalkulator</title>
+<!-- Skrypt pochodzi z książki "101 praktycznych skryptów"  -->
+<!-- autor: Marcin Lis                http://marcinlis.com  -->
+<script type="text/javascript">
+<!-- Ukrycie przed przeglądarkami nieobsługującymi JavaScriptu
+var wyrazenie = "";
+var nowe = true;
+function wprowadz(wartosc)
+{
+  var wyswietlacz = document.kalkulator.wyswietlacz;
+  if (nowe){
+      nowe = !nowe;
+      wyswietlacz.value = "";
+  }
+  wyswietlacz.value += wartosc;
+  wyrazenie += wartosc;
+}
+function dzialanie (wartosc)
+{
+  var wyswietlacz = document.kalkulator.wyswietlacz;
+  wyswietlacz.value = "";
+  wyrazenie += wartosc;
+}
+function oblicz ()
+{
+  var wyswietlacz = document.kalkulator.wyswietlacz;
+  if (wyrazenie != ""){
+      wyswietlacz.value = eval (wyrazenie);
+      wyrazenie = wyswietlacz.value;
+      nowe = true;
+  }
+}
+function zeruj()
+{
+  wyrazenie = "";
+  document.kalkulator.wyswietlacz.value = "";
+}
+function kwadrat()
+{
+  if (wyrazenie != ""){
+      document.kalkulator.wyswietlacz.value = wyrazenie * wyrazenie;
+      wyrazenie = document.kalkulator.wyswietlacz.value;
+      nowe = true;
+  }
+}
+// Koniec kodu JavaScript -->
+</script>
+<style type="text/css">
+.MyNumButton{width:30px}
+</style>
+</head>
+<body>
+<br><br>
+
+<form name = "kalkulator">
+<table border="0" align="center">
+<tr><td>
+<input type  = "text" 
+       style = "width:133px"
+       name  = "wyswietlacz"
+       size  = "16">
+</td></tr>
+<tr><td>
+<input type    = "button" 
+       class   = "MyNumButton"
+       name    = "7"
+       value   = "7"
+       onClick = "wprowadz(7)">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "8"
+       value   = "8"
+       onClick = "wprowadz(8)">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "9"
+       value   = "9"
+       onClick = "wprowadz(9)">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "/"
+       value   = "/ "
+       onClick = "dzialanie('/')">
+</td></tr><tr><td>
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "4"
+       value   = "4"
+       onClick = "wprowadz(4)">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "5"
+       value   = "5"
+       onClick = "wprowadz(5)">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "6"
+       value   = "6"
+       onClick = "wprowadz(6)">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "*"
+       value   = "*"
+       onClick = "dzialanie('*')">
+</td></tr><tr><td>
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "1"
+       value   = "1"
+       onClick = "wprowadz(1)">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "2"
+       value   = "2"
+       onClick = "wprowadz(2)">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "3"
+       value   = "3"
+       onClick = "wprowadz(3)">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "-"
+       value   = "-"
+       onClick = "dzialanie('-')">
+</td></tr><tr><td>
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "0"
+       value   = "0"
+       onClick = "wprowadz(0)">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "!"
+       value   = "^2"
+       onClick = "kwadrat('^2')">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "c"
+       value   = "c"
+       onClick = "zeruj()">
+<input type    = "button"
+       class   = "MyNumButton"
+       name    = "+"
+       value   = "+"
+       onClick = "dzialanie('+')">
+</td></tr><tr><td>
+<input type    = "button"
+       style   = "width:132px"
+       name    = "="
+       value   = "="
+       onClick = "oblicz()">
+</td></tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<title>Data i czas</title>
+<!-- Skrypt pochodzi z książki "101 praktycznych skryptów"  -->
+<!-- autor: Marcin Lis                http://marcinlis.com  -->
+<script type="text/javascript">
+<!-- Ukrycie przed przeglądarkami nieobsługującymi JavaScriptu
+var timerID = null
+function wyswietlCzas()
+{
+  var data = new Date();
+  var godziny = data.getHours();
+  var minuty = data.getMinutes();
+  var sekundy = data.getSeconds();
+  var czas = godziny;
+  czas += ((minuty < 10) ? ":0" : ":") + minuty;
+  czas += ((sekundy < 10) ? ":0" : ":") + sekundy;
+  var miesiac = data.getMonth() + 1;
+  if (miesiac < 10){
+    miesiac = "0" + miesiac;
+  }
+  var dzien = data.getDate();
+  if (dzien < 10){
+    dzien = "0" + dzien;
+  }
+  var rok = data.getFullYear();
+  var dzisiaj = dzien + "." + miesiac + "." + rok;
+  document.getElementById("wyswietlacz").value = dzisiaj + " "  + czas;
+  timerID = setTimeout("wyswietlCzas()",1000);
+}
+// Koniec kodu JavaScript -->
+</script>
+</head>
+<body onLoad="wyswietlCzas()">
+<input
+  type="text"
+  id="wyswietlacz"
+  size="20"
+  value ="">
+</body>
+</html>

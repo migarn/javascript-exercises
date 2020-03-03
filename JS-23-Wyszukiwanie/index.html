@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<title>Przeszukiwanie tekstu</title>
+<!-- Skrypt pochodzi z książki "101 praktycznych skryptów"  -->
+<!-- autor: Marcin Lis                http://marcinlis.com  -->
+<script type="text/javascript">
+<!-- Ukrycie przed przeglądarkami nieobsługującymi JavaScriptu
+function przetwarzaj (f)
+{
+  var tekst = f.okno_tekstowe.value;
+  var ciag = f.ciag_znakow.value;
+  if((ciag == "") || (tekst == "")) return;
+  var indeks = 0;
+  var indeks_wystapienia = 0;
+  var liczba_wystapien = 0;
+
+  while (indeks_wystapienia != -1){
+    indeks_wystapienia = tekst.indexOf (ciag, indeks);
+    if (indeks_wystapienia != -1){
+      indeks = indeks_wystapienia + 1;
+      liczba_wystapien++;
+    }
+  }
+  f.ile.value = liczba_wystapien;
+}
+// Koniec kodu JavaScript -->
+</script>
+</head>
+<body>
+<br><br>
+<form name = "formularz">
+<table border="0">
+<tr>
+  <td><h3>Wpisz w tym oknie tekst:</h3>
+  </td>
+  <td><h3>Wpisz szukany ciąg znaków:</h3>
+  </td>
+</tr>
+<tr>
+  <td rowspan = "2">
+    <h2>
+    <textarea name = "okno_tekstowe"
+              cols = "35"
+              rows = "10"></textarea>
+    </h2>
+ </td>
+ <td valign="top" align="right">
+   <h2>
+   <input type = "text"
+          name = "ciag_znakow">
+   <br><br>
+   <input type    = "button"
+          value   = "Szukaj"
+          onClick = "przetwarzaj(formularz)">
+   </h2>
+ </td>
+</tr>
+<tr>
+  <td ALIGN = "right">
+    <h2>
+    Podany ciąg znaków wystąpił w tekście:<br>
+    <input type = "text" name = "ile"><br>
+    razy.
+    </h2>
+ </td>
+</tr>
+</table>
+</form>
+</body>
+</html>
