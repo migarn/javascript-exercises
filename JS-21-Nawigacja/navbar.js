@@ -4,6 +4,14 @@
 Modyfikacja:
 Zmieniaj kolejność elementów w zależności od aktualnego czasu
 
+Przyjąłem, że aktualny czas będzie reprezentowany przez liczbę powstałą przez zsumowanie aktualnych: roku
+miesiąca, dnia, godziny, minuty i sekundy. Następnie dla liczby tej obliczam resztę z dzielenia przez
+długość tablicy zawierającej adresy URL. Reszta ta zawsze będzie równa jednemu z indeksów tablicy (dla
+rozważanego przykładu obliczam resztę z dzielenia przez 5, co daje mi 0, 1, 2, 3 lub 4) i tę wartość przyjmuję
+jako pierwszy element nowej tablicy 'indices'. Tablicę tę uzupełniam kolejnymi wartościami indeksów (w odpowiednim
+momencie przechodząc do wartości 0). Następnie w pętli uzupełniającej wartość zmiennej 'navStr' jako indeksy
+tablic 'navURLs' oraz 'linkText' nie przyjmuję kolejnych wartości zmiennej 'i' lecz kolejne wartości tablicy
+'indices'.
 
 */
 
@@ -28,7 +36,7 @@ function navbar() {
 	for (var i = 0; i < navURLs.length; i++) {
 		//	if (location.href != navURLs[i]) {		    	   Uncomment this line and comment 
 		if (location.href.indexOf(navURLs[indices[i]]) == -1) {	// this one when not browsing locally
-			navStr += ' <B>[</B><A HREF="' + navURLs[indices[i]] + '">' + linkText[indices[i]] + summedTime + '</A><B>]</B> ';
+			navStr += ' <B>[</B><A HREF="' + navURLs[indices[i]] + '">' + linkText[indices[i]] + '</A><B>]</B> ';
 			}
 		}
 	document.writeln('<BR><BR>' + navStr);
