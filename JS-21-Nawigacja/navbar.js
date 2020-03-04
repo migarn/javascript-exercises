@@ -1,5 +1,8 @@
 // navbar.js
 
+// Modyfikacja:
+// Zmieniaj kolejność elementów w zależności od aktualnego czasu
+
 var navURLs  = new Array('astronomy.html', 'science.html', 'sports.html', 'music.htm', 'people.htm');
 var linkText = new Array('Astronomy', 'Other Sciences', 'Sports', 'Musicians\' Corner', 'Cool People');
 
