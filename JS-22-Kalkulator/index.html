@@ -46,6 +46,16 @@ function kwadrat()
       nowe = true;
   }
 }
+function funkcja (wartosc)
+{
+  if (wyrazenie != ""){
+	  var argument = "(" + wyrazenie + ")";
+      wyrazenie = wartosc + argument;
+      document.kalkulator.wyswietlacz.value = eval (wyrazenie);
+      wyrazenie = document.kalkulator.wyswietlacz.value;
+      nowe = true;
+  }
+}
 // Koniec kodu JavaScript -->
 </script>
 <style type="text/css">
@@ -124,7 +134,7 @@ function kwadrat()
        class   = "MyNumButton"
        name    = "sqrt"
        value   = "sqrt"
-       onClick = "">
+       onClick = "funkcja('Math.sqrt')">
 </td></tr><tr><td>
 <input type    = "button"
        class   = "MyNumButton"
