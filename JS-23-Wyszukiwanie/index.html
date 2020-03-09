@@ -16,16 +16,18 @@ function przetwarzaj (f)
   var indeks = 0;
   var indeks_wystapienia = 0;
   var liczba_wystapien = 0;
-  var indices = "";
+  var indeksy = "";
 
   while (indeks_wystapienia != -1){
     indeks_wystapienia = tekst.indexOf (ciag, indeks);
     if (indeks_wystapienia != -1){
+	  indeksy += indeks_wystapienia + " ";
       indeks = indeks_wystapienia + 1;
       liczba_wystapien++;
     }
   }
   f.ile.value = liczba_wystapien;
+  f.gdzie.value = indeksy;
 }
 // Koniec kodu JavaScript -->
 </script>
@@ -66,7 +68,7 @@ function przetwarzaj (f)
     <input type = "text" name = "ile"><br>
     razy.<br><br>
 	Warto¶ci indeksów, pod którymi znaleziono ciag znaków:<br>
-	<input type = "text" name = "indeksy">
+	<input type = "text" name = "gdzie">
     </h2>
  </td>
 </tr>
