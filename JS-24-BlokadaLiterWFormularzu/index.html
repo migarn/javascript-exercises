@@ -8,10 +8,10 @@
 <!-- autor: Marcin Lis                http://marcinlis.com  -->
 <script type="text/javascript">
 <!-- Ukrycie przed przegl±darkami nieobs³uguj±cymi JavaScriptu
-function checkLength()
+function checkLength(origin, destination, inputLength)
 {
-  if (document.forms.form1.f1.value.length >= 2){
-    document.forms.form1.f2.focus();
+  if (origin.value.length >= inputLength){
+    destination.focus();
   }
 }
 function keyPress(evt)
@@ -49,13 +49,14 @@ Kod pocztowy
 <input size      ="2"
        name      ="f1"
        maxlength ="2"
-       onKeyUp   ="checkLength()"
+       onKeyUp   ="checkLength(document.forms.form1.f1,document.forms.form1.f2,2)"
        onKeyPress="keyPress(event)"
 >
 -
 <input size      ="3"
        name      ="f2"
        maxlength ="3"
+	   onKeyUp   ="checkLength(document.forms.form1.f2,document.forms.form1.f3,3)"
        onKeyPress="keyPress(event)"><br>
 Poczta
 <input size		 ="20"
