@@ -14,7 +14,7 @@ function checkLength(origin, destination, inputLength)
     destination.focus();
   }
 }
-function keyPress(evt)
+function keyPress(evt, mode)
 {
   if(window.event){
     kod = window.event.keyCode;
@@ -23,18 +23,25 @@ function keyPress(evt)
     kod = evt.which;
   }
   if(window.event){
-    if(kod < 48 || kod > 57){
+    if(mode == 1 && (kod < 48 || kod > 57)){
       window.event.returnValue = false;
     }
+	else if(mode == 2 && (kod < 65 || (kod > 90 && kod < 97) || kod > 122)) {
+	  window.event.returnValue = false;
+	}	
     else{
       window.event.returnValue = true;
     }
   }
   else{
-    if(kod < 48 || kod > 57){
+    if(mode == 1 && (kod < 48 || kod > 57)){
       evt.returnValue = false;
       evt.preventDefault();
     }
+	else if(mode == 2 && (kod < 65 || (kod > 90 && kod < 97) || kod > 122)) {
+	  evt.returnValue = false;
+      evt.preventDefault();
+	}	
     else{
       evt.returnValue = true;
     }
@@ -50,18 +57,19 @@ Kod pocztowy
        name      ="f1"
        maxlength ="2"
        onKeyUp   ="checkLength(document.forms.form1.f1,document.forms.form1.f2,2)"
-       onKeyPress="keyPress(event)"
+       onKeyPress="keyPress(event, 1)"
 >
 -
 <input size      ="3"
        name      ="f2"
        maxlength ="3"
 	   onKeyUp   ="checkLength(document.forms.form1.f2,document.forms.form1.f3,3)"
-       onKeyPress="keyPress(event)"><br>
+       onKeyPress="keyPress(event, 1)"><br>
 Poczta
 <input size		 ="20"
 	   name		 ="f3"
 	   maxlength ="20"
+	   onKeyPress="keyPress(event, 2)"
 	   >
 </form>
 </body>
