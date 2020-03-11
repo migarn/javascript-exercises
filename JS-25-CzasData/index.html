@@ -27,7 +27,36 @@ function wyswietlCzas()
     dzien = "0" + dzien;
   }
   var rok = data.getFullYear();
-  var dzisiaj = dzien + "." + miesiac + "." + rok;
+  var indeksDnia = data.getUTCDay();
+  var nazwaDnia = "";
+  
+  switch(indeksDnia) {
+	case 1:
+		nazwaDnia = "Poniedzia³ek";
+		break;
+	case 2:
+		nazwaDnia = "Wtorek";
+		break;
+	case 3:
+		nazwaDnia = "¦roda";
+		break;
+	case 4:
+		nazwaDnia = "Czwartek";
+		break;
+	case 5:
+		nazwaDnia = "Pi±tek";
+		break;
+	case 6:
+		nazwaDnia = "Sobota";
+		break;
+	case 7:
+		nazwaDnia = "Niedziela";
+		break;
+  }
+  
+  
+  
+  var dzisiaj = dzien + "." + miesiac + "." + rok + " " + nazwaDnia;
   document.getElementById("wyswietlacz").value = dzisiaj + " "  + czas;
   timerID = setTimeout("wyswietlCzas()",1000);
 }
