@@ -19,6 +19,47 @@ function wyswietlCzas()
   czas += ((minuty < 10) ? ":0" : ":") + minuty;
   czas += ((sekundy < 10) ? ":0" : ":") + sekundy;
   var miesiac = data.getMonth() + 1;
+  var nazwaMiesiaca = "";
+  
+  switch(miesiac) {
+	case 1:
+		nazwaMiesiaca = "styczeñ";
+		break;
+	case 2:
+		nazwaMiesiaca = "luty";
+		break;
+	case 3:
+		nazwaMiesiaca = "marzec";
+		break;
+	case 4:
+		nazwaMiesiaca = "kwiecieñ";
+		break;
+	case 5:
+		nazwaMiesiaca = "maj";
+		break;
+	case 6:
+		nazwaMiesiaca = "czerwiec";
+		break;
+	case 7:
+		nazwaMiesiaca = "lipiec";
+		break;
+	case 8:
+		nazwaMiesiaca = "sierpieñ";
+		break;
+	case 9:
+		nazwaMiesiaca = "wrzesieñ";
+		break;
+	case 10:
+		nazwaMiesiaca = "pa¼dziernik";
+		break;
+	case 11:
+		nazwaMiesiaca = "listopad";
+		break;
+	case 12:
+		nazwaMiesiaca = "grudzieñ";
+		break;
+  }
+    
   if (miesiac < 10){
     miesiac = "0" + miesiac;
   }
@@ -32,32 +73,30 @@ function wyswietlCzas()
   
   switch(indeksDnia) {
 	case 1:
-		nazwaDnia = "Poniedzia³ek";
+		nazwaDnia = "poniedzia³ek";
 		break;
 	case 2:
-		nazwaDnia = "Wtorek";
+		nazwaDnia = "wtorek";
 		break;
 	case 3:
-		nazwaDnia = "¦roda";
+		nazwaDnia = "¶roda";
 		break;
 	case 4:
-		nazwaDnia = "Czwartek";
+		nazwaDnia = "czwartek";
 		break;
 	case 5:
-		nazwaDnia = "Pi±tek";
+		nazwaDnia = "pi±tek";
 		break;
 	case 6:
-		nazwaDnia = "Sobota";
+		nazwaDnia = "sobota";
 		break;
 	case 7:
-		nazwaDnia = "Niedziela";
+		nazwaDnia = "niedziela";
 		break;
   }
   
-  
-  
-  var dzisiaj = dzien + "." + miesiac + "." + rok + " " + nazwaDnia;
-  document.getElementById("wyswietlacz").value = dzisiaj + " "  + czas;
+  var dzisiaj = "Data: " + dzien + "." + miesiac + "." + rok + "; dzieñ tygodnia: " + nazwaDnia + "; miesi±c: " + nazwaMiesiaca;
+  document.getElementById("wyswietlacz").value = dzisiaj + "; godzina: "  + czas;
   timerID = setTimeout("wyswietlCzas()",1000);
 }
 // Koniec kodu JavaScript -->
